@@ -66,9 +66,7 @@ def main_menu():
         elif choice == "3":
             run_hash_table(keys)
         elif choice == "4":
-            # Need AVL root & instance; run AVL first if not done
-            _, avl_root, avl_instance = run_bst_avl(keys)
-            run_history_log(avl_root, avl_instance)
+            #history
         elif choice == "5":
             run_all(keys)
         elif choice == "0":
