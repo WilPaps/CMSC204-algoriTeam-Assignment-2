@@ -1,5 +1,5 @@
 #bst to avl
-
+from collections import deque
 class Node:
     def __init__(self, value):
         self.value = value
@@ -12,12 +12,12 @@ class BST:
         if root is None:
             #print statement
             return Node(value)
-        if value < root.value:
+        if value <= root.value:    #duplicates go left
             root.left = self.insert(root.left, value)
-        elif value > root.value:
+        else: 
             root.right = self.insert(root.right, value)
 
-        return root #duplicates not allowed
+        return root 
     
 class AVL:
     def get_height(self, node):
@@ -60,21 +60,19 @@ class AVL:
         if root is None:
             return Node(value)
         
-        if value < root.value:
+        if value <= root.value:
             root.left = self.insert(root.left, value)
 
-        elif value > root.value:
+        else: 
             root.right = self.insert(root.right, value)
         
-        else:
-            return root #duplicates not allowed
 
         root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
 
         balance = self.get_balance(root)
 
         #left-left rotation
-        if balance > 1 and value < root.left.value:
+        if balance > 1 and value <= root.left.value:
             return self.right_rotation(root)
         #right-right rotation
         if balance < -1 and value > root.right.value:
@@ -89,3 +87,26 @@ class AVL:
             return self.left_rotation(root)
         
         return root
+
+if __name__ == "__main__":
+    values = [2,5,3,0,2,0,0,6]
+
+    avl = AVL()
+    root = None
+
+    for value in values:
+        root = avl.insert(root, value)
+
+    result = []
+    queue = deque([root])
+
+    while queue:
+        node = queue.popleft()
+        result.append(node.value)
+
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+    
+    print(result)
