@@ -1,9 +1,9 @@
 # main - compile everything here
 
 from bst_avl import BST, AVL, tree_snapshot, print_balance_factors
-from max_heap import build_max_heap_from_key, extract_two_maximum_values, print_heap
-from blacklist import HastTable
-#input generate key
+#from max_heap import build_max_heap_from_key, extract_two_maximum_values, print_heap
+#from blacklist import HashTable
+from input import get_student_keys
 #history log stack descending traversal
 
 def run_bst_avl(keys):
@@ -44,17 +44,17 @@ def run_all(keys):
     bst_root, avl_root, avl_instance = run_bst_avl(keys)
     run_max_heap(keys)
     run_hash_table(keys)
-    run_history_log(avl_root, avl_instance)
+    #run_history_log(avl_root, avl_instance)
 
 def main_menu():
     keys = get_student_keys()
 
     while True:
         print("\n=== Sentinel System Menu ===")
-        print("1. Part 1 - BST & AVL")
-        print("2. Part 2a - Max Heap")
-        print("3. Part 2b - IP Blacklist")
-        print("4. Part 3 - History Log (AVL)")
+        print("1. Threat Registry")         # BST and AVL
+        print("2. Priority Attack Queue")   # Max Heap
+        print("3. IP Blacklist")            # Hash Table
+        print("4. History Log")             # Stack traversal
         print("5. Run Entire System")
         print("0. Exit")
 
@@ -67,6 +67,7 @@ def main_menu():
             run_hash_table(keys)
         elif choice == "4":
             #history
+            pass
         elif choice == "5":
             run_all(keys)
         elif choice == "0":

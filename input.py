@@ -34,8 +34,17 @@ def generate_keys(student_number, surname):
     return keys
     
 def get_student_keys():
-    student_number = get_student_number()
-    surname = get_surname()
+    while True:
+        student_number = get_student_number()
+        surname = get_surname()
+
+        print(f"\nYou entered:\nStudent Number:{student_number}\nSurname:{surname}")
+        confirm = input("Is this correct? (Y/N): ").strip().upper()
+
+        if confirm == "Y":
+            break
+        else:
+            print("Try again.")
 
     keys = generate_keys(student_number, surname)
 
