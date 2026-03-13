@@ -108,7 +108,8 @@ def extract_two_maximum_values(original_heap):
 
 #test data
 key = [2,5,3,0,2,0,0,6] #original key
-key_rev = [3,2,5,0,2,6,0,0] #balanced key
+# key_rev = [3,2,5,0,2,6,0,0] #balanced key
+key_rev = [2, 0, 3, 0, 0, 2, 5, 6]
 
 #temporary for me to run the file
 if __name__ == "__main__":
