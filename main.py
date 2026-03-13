@@ -1,10 +1,10 @@
 # main - compile everything here
 
 from bst_avl import BST, AVL, tree_snapshot, print_balance_factors
-#from max_heap import build_max_heap_from_key, extract_two_maximum_values, print_heap
-#from blacklist import HashTable
+from max_heap import build_max_heap_from_key, extract_two_maximum_values, print_heap
+from blacklist import HashTable
 from input import get_student_keys
-#history log stack descending traversal
+from history_log import demonstrate_stack_traversal
 
 def run_bst_avl(keys):
     print("=== Part 1: BST Construction and AVL Balancing ===\n")
@@ -38,7 +38,9 @@ def run_hash_table(keys):
     hash_table.display_collision_summary()
     return hash_table
 
-#def run_history_log
+def run_history_log():
+    print("\n ===History log (Stack Traversal) ===\n")
+    demonstrate_stack_traversal(keys)
 
 def run_all(keys):
     bst_root, avl_root, avl_instance = run_bst_avl(keys)
@@ -66,8 +68,7 @@ def main_menu():
         elif choice == "3":
             run_hash_table(keys)
         elif choice == "4":
-            #history
-            pass
+            run_history_log(keys)
         elif choice == "5":
             run_all(keys)
         elif choice == "0":
@@ -77,5 +78,9 @@ def main_menu():
             print("Invalid choice. Enter a number 0-5.")
 
 if __name__ == "__main__":
-    main_menu()
+    try:
+        main_menu()
+    except KeyboardInterrupt:
+        print("\n\n Sentinel system interrupted by user.")
+        print("Shutting down safely...")
 
