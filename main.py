@@ -38,7 +38,7 @@ def run_hash_table(keys):
     hash_table.display_collision_summary()
     return hash_table
 
-def run_history_log():
+def run_history_log(keys):
     print("\n ===History log (Stack Traversal) ===\n")
     demonstrate_stack_traversal(keys)
 

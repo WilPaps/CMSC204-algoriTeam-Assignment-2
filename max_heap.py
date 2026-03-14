@@ -106,6 +106,15 @@ def extract_two_maximum_values(original_heap):
     
     return extracted_values, heap
 
+######################################################
+
+
+
+
+
+
+
+
 #test data
 key = [2,5,3,0,2,0,0,6] #original key
 # key_rev = [3,2,5,0,2,6,0,0] #balanced key
