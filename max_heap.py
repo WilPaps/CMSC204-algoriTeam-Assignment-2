@@ -23,7 +23,7 @@ def build_max_heap_from_key(balanced_key):
     n = len(heap)
     
     # Build heap (rearrange array)
-    for i in range(n // 2 - 1, -1, -1):
+    for i in range(n // 2-1, -1, -1):
         max_heapify(heap, n, i)
     
     return heap
